@@ -1,0 +1,91 @@
+@layer base {
+    body {
+        font-family: 'Noto Sans SC', sans-serif;
+        scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Serif SC', serif;
+    }
+}
+
+@layer components {
+    .text-shadow {
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .glass {
+        background: rgba(255,255,255,0.9);
+        backdrop-filter: blur(10px);
+    }
+    .card-hover {
+        transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -10px rgba(30, 58, 138, 0.15);
+    }
+    .animate-fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .animate-fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .gradient-overlay {
+        background: linear-gradient(to top, rgba(30,58,138,0.8) 0%, rgba(30,58,138,0.4) 40%, transparent 100%);
+    }
+    .shimmer {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+    }
+    @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+    .nav-link {
+        position: relative;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #d4af37;
+        transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+        width: 100%;
+    }
+    .img-placeholder {
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        border: 2px dashed #cbd5e1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+        font-size: 0.875rem;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+@layer utilities {
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}

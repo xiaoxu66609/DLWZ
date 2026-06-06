@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大连市第五中学 - 和谐五中 优质五中 幸福五中</title>
+    <meta name="description" content="大连市第五中学始建于1957年，位于西岗区香工街7号，是一所隶属于西岗区的公办完全中学。学校以和雅教育为办学特色，2024年获评辽宁省特色普通高中。">
+    <meta name="keywords" content="大连市第五中学,大连五中,西岗区,完全中学,和雅教育,辽宁省特色普通高中">
+    <!-- 请替换为本地校徽图片路径，如 ./images/logo.jpg -->
+    <link rel="icon" type="image/jpeg" href="">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.loli.net">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#7c152e',
+                            900: '#7c152e',
+                        },
+                        accent: {
+                            400: '#d4af37',
+                            500: '#c9a227',
+                            600: '#b8941f',
+                        },
+                        school: {
+                            red: '#c5304d',
+                            dark: '#9b1b3a',
+                            gold: '#d4af37',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif SC"', 'serif'],
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- 加载动画 -->
+    <div id="loader" class="fixed inset-0 z-[9999] bg-school-dark flex items-center justify-center transition-opacity duration-500">
+        <div class="text-center">
+            <div class="img-placeholder w-20 h-20 mx-auto mb-4 animate-float rounded-lg text-xs">[校徽]</div> <!-- 请替换为本地校徽图片 -->
+            <div class="w-48 h-1 bg-white/20 rounded-full overflow-hidden">
+                <div class="h-full bg-school-gold rounded-full animate-pulse" style="width: 60%"></div>
+            </div>
+            <p class="text-white/80 mt-4 text-sm tracking-widest">大连市第五中学</p>
+        </div>
+    </div>
+
+    <!-- 顶部通知栏 -->
+    <div class="bg-school-red text-white text-xs py-2 px-4 text-center relative overflow-hidden">
+        <div class="flex items-center justify-center gap-4 flex-wrap">
+            <span class="flex items-center gap-1">
+                <i data-lucide="award" class="w-3 h-3"></i>
+                热烈祝贺我校2024年10月获评"辽宁省特色普通高中"
+            </span>
+            <span class="hidden md:inline">|</span>
+            <span class="hidden md:inline">2025年校园升级改造焕新工程全面启动</span>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <header id="header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group" title="即将上线">
+                    <div class="relative overflow-hidden rounded-lg">
+                        <!-- 请替换为本地校徽图片路径，如 ./images/logo.jpg -->
+                        <div class="img-placeholder w-10 h-10 lg:w-12 lg:h-12 rounded-lg text-xs">[校徽]</div>
+                    </div>
+                    <div class="hidden sm:block">
+                        <h1 class="text-lg lg:text-xl font-bold text-school-dark leading-tight">大连市第五中学</h1>
+                        <p class="text-[10px] lg:text-xs text-slate-500 tracking-wider">DALIAN NO.5 MIDDLE SCHOOL</p>
+                    </div>
+                </a>
+
+                <!-- 桌面导航 -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#about" class="nav-link text-sm font-medium text-slate-700 hover:text-school-dark transition-colors">学校概况</a>
+                    <a href="#news" class="nav-link text-sm font-medium text-slate-700 hover:text-school-dark transition-colors">新闻中心</a>
+                    <a href="#education" class="nav-link text-sm font-medium text-slate-700 hover:text-school-dark transition-colors">教育教学</a>
+                    <a href="#admission" class="nav-link text-sm font-medium text-slate-700 hover:text-school-dark transition-colors">招生招聘</a>
+                    <a href="#campus" class="nav-link text-sm font-medium text-slate-700 hover:text-school-dark transition-colors">校园风光</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-slate-700 hover:text-school-dark transition-colors">联系我们</a>
+                </nav>
+
+                <!-- 右侧功能 -->
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleSearch()" class="p-2 hover:bg-slate-100 rounded-full transition-colors" aria-label="搜索">
+                        <i data-lucide="search" class="w-5 h-5 text-slate-600"></i>
+                    </button>
+                    <button onclick="toggleTheme()" class="p-2 hover:bg-slate-100 rounded-full transition-colors hidden sm:hidden" aria-label="切换主题">
+                        <i data-lucide="sun" class="w-5 h-5 text-slate-600" id="theme-icon"></i>
+                    </button>
+                    <a href="#" class="hidden md:flex items-center gap-2 px-4 py-2 bg-school-dark text-white text-sm rounded-full hover:bg-school-dark/90 transition-colors" title="即将上线">
+                        <i data-lucide="log-in" class="w-4 h-4"></i>
+                        师生入口
+                    </a>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 hover:bg-slate-100 rounded-full" aria-label="菜单">
+                        <i data-lucide="menu" class="w-6 h-6 text-slate-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 搜索框 -->
+        <div id="search-bar" class="hidden border-t border-slate-200 bg-white">
+            <div class="max-w-3xl mx-auto px-4 py-4">
+                <div class="relative">
+                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"></i>
+                    <input type="text" placeholder="搜索新闻、通知、课程..." class="w-full pl-12 pr-4 py-3 bg-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-school-dark/20">
+                    <button onclick="toggleSearch()" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white max-h-[80vh] overflow-y-auto">
+            <div class="px-4 py-4 space-y-1">
+                <a href="#about" class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700 font-medium" onclick="toggleMobileMenu()">学校概况</a>
+                <a href="#news" class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700 font-medium" onclick="toggleMobileMenu()">新闻中心</a>
+                <a href="#education" class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700 font-medium" onclick="toggleMobileMenu()">教育教学</a>
+                <a href="#admission" class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700 font-medium" onclick="toggleMobileMenu()">招生招聘</a>
+                <a href="#campus" class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700 font-medium" onclick="toggleMobileMenu()">校园风光</a>
+                <a href="#contact" class="block px-4 py-3 rounded-lg hover:bg-slate-50 text-slate-700 font-medium" onclick="toggleMobileMenu()">联系我们</a>
+                <div class="pt-4 border-t border-slate-200">
+                    <a href="#" class="flex items-center gap-2 px-4 py-3 bg-school-dark text-white rounded-lg justify-center" title="即将上线">
+                        <i data-lucide="log-in" class="w-4 h-4"></i>
+                        师生入口
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区轮播 -->
+    <section class="relative h-[600px] lg:h-[700px] overflow-hidden">
+        <div class="swiper hero-swiper h-full">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-school-dark/90 to-school-dark/70"></div>
+                    <!-- 请替换为校园实景照片 -->
+                    <div class="absolute inset-0 bg-slate-700/50 mix-blend-overlay"></div>
+                    <div class="relative h-full flex items-center justify-center text-center px-4">
+                        <div class="max-w-4xl animate-fade-up">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6 border border-white/20">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                始建于1957年 · 67年办学历史
+                            </div>
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white text-shadow mb-6 leading-tight">
+                                自尊 自强<br><span class="text-school-gold">求实 开创</span>
+                            </h2>
+                            <p class="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+                                以人为本，以德树人，以质立校，以特色求发展<br>
+                                辽宁省特色普通高中 · 全国首批特色高中建设项目学校
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a href="#about" class="px-8 py-4 bg-school-gold text-school-dark font-bold rounded-full hover:bg-accent-400 transition-all hover:scale-105 flex items-center gap-2 justify-center">
+                                    探索五中
+                                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#admission" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/30 font-bold rounded-full hover:bg-white/20 transition-all flex items-center gap-2 justify-center">
+                                    招生简章
+                                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/90 to-school-dark/80"></div>
+                    <!-- 请替换为校园活动照片 -->
+                    <div class="absolute inset-0 bg-slate-700/50 mix-blend-overlay"></div>
+                    <div class="relative h-full flex items-center justify-center text-center px-4">
+                        <div class="max-w-4xl">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6 border border-white/20">
+                                <i data-lucide="trophy" class="w-4 h-4"></i>
+                                2024年10月获评辽宁省特色普通高中
+                            </div>
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white text-shadow mb-6 leading-tight">
+                                和雅教育<br><span class="text-school-gold">特色发展</span>
+                            </h2>
+                            <p class="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+                                和顺管理 · 和雅德育 · 和乐教学 · 和美校园<br>
+                                让每个孩子都发光
+                            </p>
+                            <a href="#education" class="px-8 py-4 bg-school-gold text-school-dark font-bold rounded-full hover:bg-accent-400 transition-all hover:scale-105 inline-flex items-center gap-2">
+                                了解特色课程
+                                <i data-lucide="book-open" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-amber-900/80 to-school-dark/90"></div>
+                    <!-- 请替换为毕业典礼或课堂照片 -->
+                    <div class="absolute inset-0 bg-slate-700/50 mix-blend-overlay"></div>
+                    <div class="relative h-full flex items-center justify-center text-center px-4">
+                        <div class="max-w-4xl">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6 border border-white/20">
+                                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                                高考本科录取率60%以上
+                            </div>
+                            <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white text-shadow mb-6 leading-tight">
+                                低进高出<br><span class="text-school-gold">高进优出</span>
+                            </h2>
+                            <p class="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+                                连续多年本科录取率达60%以上，一本录取率占计划内招生数24%以上<br>
+                                每年均有学子考入清华、北大、复旦、浙大等著名高校
+                            </p>
+                            <a href="#education" class="px-8 py-4 bg-school-gold text-school-dark font-bold rounded-full hover:bg-accent-400 transition-all hover:scale-105 inline-flex items-center gap-2">
+                                教学成果
+                                <i data-lucide="trending-up" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 轮播控制 -->
+            <div class="swiper-pagination !bottom-8"></div>
+            <div class="swiper-button-prev !left-4 !text-white/70 after:!text-2xl"></div>
+            <div class="swiper-button-next !right-4 !text-white/70 after:!text-2xl"></div>
+        </div>
+
+        <!-- 波浪分隔 -->
+        <div class="absolute bottom-0 left-0 right-0 z-10">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+                <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#f8fafc"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 快速入口 -->
+    <section class="py-12 bg-slate-50 relative -mt-2 z-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="#admission" class="group bg-white rounded-2xl p-8 text-center card-hover border border-slate-100">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-school-dark/5 rounded-xl flex items-center justify-center group-hover:bg-school-dark group-hover:text-white transition-all">
+                        <i data-lucide="file-text" class="w-8 h-8 text-school-dark group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-1">招生简章</h3>
+                    <p class="text-sm text-slate-500">2026年招生信息</p>
+                </a>
+                <a href="#calendar" class="group bg-white rounded-2xl p-8 text-center card-hover border border-slate-100" title="即将上线">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-school-dark/5 rounded-xl flex items-center justify-center group-hover:bg-school-dark group-hover:text-white transition-all">
+                        <i data-lucide="calendar-days" class="w-8 h-8 text-school-dark group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-1">校历安排</h3>
+                    <p class="text-sm text-slate-500">学期与假期安排</p>
+                </a>
+                <a href="#campus" class="group bg-white rounded-2xl p-8 text-center card-hover border border-slate-100">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-school-dark/5 rounded-xl flex items-center justify-center group-hover:bg-school-dark group-hover:text-white transition-all">
+                        <i data-lucide="images" class="w-8 h-8 text-school-dark group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-1">校园风光</h3>
+                    <p class="text-sm text-slate-500">五中校园实景</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻公告 -->
+    <section id="news" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-fade-up">
+                <span class="inline-block px-4 py-1 bg-school-dark/5 text-school-dark text-sm font-medium rounded-full mb-4">NEWS & NOTICES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">新闻中心</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">关注校园动态，了解五中最新发展与成就</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- 通知公告 -->
+                <div class="animate-fade-up">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-school-red/10 rounded-lg flex items-center justify-center">
+                            <i data-lucide="bell" class="w-5 h-5 text-school-red"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">通知公告</h3>
+                    </div>
+                    <div id="notice-list" class="space-y-4">
+                        <!-- 暂无通知时显示 -->
+                        <div class="text-center py-12 text-slate-400">
+                            <i data-lucide="inbox" class="w-10 h-10 mx-auto mb-3 opacity-50"></i>
+                            <p class="text-sm">暂无最新通知</p>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 mt-6 text-school-dark font-medium text-sm hover:gap-3 transition-all" title="即将上线">
+                        查看全部公告
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- 校园新闻 -->
+                <div class="animate-fade-up" style="transition-delay: 100ms">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-school-dark/10 rounded-lg flex items-center justify-center">
+                            <i data-lucide="newspaper" class="w-5 h-5 text-school-dark"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">校园新闻</h3>
+                    </div>
+                    <div id="news-list" class="space-y-6">
+                        <!-- 暂无新闻时显示 -->
+                        <div class="text-center py-12 text-slate-400">
+                            <i data-lucide="newspaper" class="w-10 h-10 mx-auto mb-3 opacity-50"></i>
+                            <p class="text-sm">暂无校园新闻</p>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 mt-6 text-school-dark font-medium text-sm hover:gap-3 transition-all" title="即将上线">
+                        查看更多新闻
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- 媒体聚焦/荣誉 -->
+                <div class="animate-fade-up" style="transition-delay: 200ms">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-school-gold/10 rounded-lg flex items-center justify-center">
+                            <i data-lucide="award" class="w-5 h-5 text-school-gold"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900">荣誉殿堂</h3>
+                    </div>
+                    <div class="bg-gradient-to-br from-school-dark to-school-dark/90 rounded-2xl p-6 text-white">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                <i data-lucide="crown" class="w-6 h-6 text-school-gold"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-white/70">最新荣誉</p>
+                                <p class="font-bold">辽宁省特色普通高中</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
+                                <span>全国青少年校园足球特色学校</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
+                                <span>全国青少年校园篮球特色学校</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
+                                <span>辽宁省图书建设示范学校</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
+                                <span>大连市和雅教育特色高中</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
+                                <span>大连市中小学家庭教育示范校</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10">
+                            <p class="text-xs text-white/60 mb-2">2025年校园升级改造投资</p>
+                            <p class="text-2xl font-bold text-school-gold">5000万元</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学校概况 -->
+    <section id="about" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-up">
+                    <span class="inline-block px-4 py-1 bg-school-dark/5 text-school-dark text-sm font-medium rounded-full mb-4">ABOUT US</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">学校概况</h2>
+                    <div class="prose prose-slate max-w-none">
+                        <p class="text-slate-600 mb-4 leading-relaxed">
+                            大连市第五中学始建于<strong class="text-school-dark">1957年</strong>，位于辽宁省大连市西岗区香工街7号，是隶属于西岗区教育局的一所公办完全中学。学校占地面积<strong class="text-school-dark">4万多平方米</strong>，建有教学楼和综合实验楼，拥有400米环形跑道的标准化操场。
+                        </p>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            经过67年的发展，学校现已成为拥有<strong>22个初中班、18个高中班</strong>，总规模达40个教学班，学生总数近1500人的现代化完全中学。学校以"<strong class="text-school-dark">以人为本，以德树人，以质立校，以特色求发展</strong>"为办学思想，践行"和雅教育"特色，致力于培养"和而不同，雅而有致"的新时代人才。
+                        </p>
+                    </div>
+
+                    <!-- 数据展示 -->
+                    <div class="grid grid-cols-3 gap-6 mt-8">
+                        <div class="text-center p-4 bg-white rounded-xl border border-slate-100">
+                            <div class="text-3xl font-bold text-school-dark count-up" data-target="67">0</div>
+                            <div class="text-xs text-slate-500 mt-1">年办学历史</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-xl border border-slate-100">
+                            <div class="text-3xl font-bold text-school-dark count-up" data-target="1500">0</div>
+                            <div class="text-xs text-slate-500 mt-1">在校学生</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-xl border border-slate-100">
+                            <div class="text-3xl font-bold text-school-dark count-up" data-target="157">0</div>
+                            <div class="text-xs text-slate-500 mt-1">教职员工</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate-fade-up relative" style="transition-delay: 100ms">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4 mt-8">
+                            <div class="rounded-2xl overflow-hidden h-48 shadow-lg">
+                                <div class="img-placeholder w-full h-full">[请替换]<br>教学楼照片</div>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden h-32 shadow-lg">
+                                <div class="img-placeholder w-full h-full">[请替换]<br>实验室照片</div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="rounded-2xl overflow-hidden h-32 shadow-lg">
+                                <div class="img-placeholder w-full h-full">[请替换]<br>操场照片</div>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden h-48 shadow-lg">
+                                <div class="img-placeholder w-full h-full">[请替换]<br>课堂照片</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 装饰元素 -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-school-gold/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-school-dark/10 rounded-full blur-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 办学理念与文化 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-up">
+                <span class="inline-block px-4 py-1 bg-school-gold/10 text-school-gold text-sm font-medium rounded-full mb-4">SCHOOL CULTURE</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">和雅教育 · 文化立校</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">以传统文化为根基，构建"四和文化"体系，营造和谐育人环境</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group bg-gradient-to-br from-school-dark to-school-dark/90 rounded-2xl p-8 text-white card-hover animate-fade-up">
+                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-school-gold group-hover:text-school-dark transition-all">
+                        <i data-lucide="users" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">和顺管理</h3>
+                    <p class="text-white/80 text-sm leading-relaxed">民主、尊重、活力、幸福。构建和谐有序的管理体系，让每一位师生感受尊重与关怀。</p>
+                </div>
+
+                <div class="group bg-gradient-to-br from-school-red to-school-red/90 rounded-2xl p-8 text-white card-hover animate-fade-up" style="transition-delay: 100ms">
+                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-school-red transition-all">
+                        <i data-lucide="heart" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">和雅德育</h3>
+                    <p class="text-white/80 text-sm leading-relaxed">文雅、阳光、责任、爱心。培养品德高尚、举止优雅的现代公民。</p>
+                </div>
+
+                <div class="group bg-gradient-to-br from-amber-600 to-amber-700 rounded-2xl p-8 text-white card-hover animate-fade-up" style="transition-delay: 200ms">
+                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-amber-600 transition-all">
+                        <i data-lucide="book-open" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">和乐教学</h3>
+                    <p class="text-white/80 text-sm leading-relaxed">自主、合作、多元、适性。打造快乐高效的课堂，让学习成为享受。</p>
+                </div>
+
+                <div class="group bg-gradient-to-br from-emerald-700 to-emerald-800 rounded-2xl p-8 text-white card-hover animate-fade-up" style="transition-delay: 300ms">
+                    <div class="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-emerald-700 transition-all">
+                        <i data-lucide="trees" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">和美环境</h3>
+                    <p class="text-white/80 text-sm leading-relaxed">整洁、谐调、微笑、个性。营造优美舒适的校园环境，润物细无声。</p>
+                </div>
+            </div>
+
+            <!-- 校训展示 -->
+            <div class="mt-16 bg-slate-50 rounded-3xl p-8 md:p-12 text-center animate-fade-up">
+                <div class="max-w-3xl mx-auto">
+                    <!-- 请替换为本地校徽图片路径，如 ./images/logo.jpg -->
+                    <div class="img-placeholder w-16 h-16 mx-auto mb-6 rounded-lg">[校徽]</div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">校训</h3>
+                    <p class="text-4xl md:text-5xl font-bold text-school-dark mb-6 tracking-widest">自尊 自强 求实 开创</p>
+                    <div class="grid sm:grid-cols-3 gap-4 text-sm text-slate-600">
+                        <div class="p-4 bg-white rounded-xl">
+                            <p class="font-bold text-school-dark mb-1">校风</p>
+                            <p>真诚 互助 文明 有序</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl">
+                            <p class="font-bold text-school-dark mb-1">教风</p>
+                            <p>博爱 严谨 务实 创新</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl">
+                            <p class="font-bold text-school-dark mb-1">学风</p>
+                            <p>勤奋 好问 多思 互助</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育教学 -->
+    <section id="education" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-fade-up">
+                <span class="inline-block px-4 py-1 bg-school-dark/5 text-school-dark text-sm font-medium rounded-full mb-4">ACADEMIC EXCELLENCE</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">教育教学</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">多元课程体系，全面发展平台，为每一位学生的成长赋能</p>
+            </div>
+
+            <!-- 标签切换 -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 animate-fade-up">
+                <button onclick="switchTab('courses')" id="tab-courses" class="tab-btn px-6 py-3 rounded-full text-sm font-medium bg-school-dark text-white transition-all">特色课程</button>
+                <button onclick="switchTab('teachers')" id="tab-teachers" class="tab-btn px-6 py-3 rounded-full text-sm font-medium bg-white text-slate-600 hover:bg-slate-100 transition-all border border-slate-200">师资力量</button>
+                <button onclick="switchTab('achievements')" id="tab-achievements" class="tab-btn px-6 py-3 rounded-full text-sm font-medium bg-white text-slate-600 hover:bg-slate-100 transition-all border border-slate-200">教学成果</button>
+                <button onclick="switchTab('international')" id="tab-international" class="tab-btn px-6 py-3 rounded-full text-sm font-medium bg-white text-slate-600 hover:bg-slate-100 transition-all border border-slate-200">国际交流</button>
+            </div>
+
+            <!-- 内容区 -->
+            <div id="content-courses" class="tab-content animate-fade-up">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div class="rounded-2xl overflow-hidden h-80 lg:h-96">
+                        <div class="img-placeholder w-full h-full">[请替换]<br>传媒艺术课程照片</div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">传媒艺术特色高中</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">2009年起，我校成功入选全国首批特色高中建设项目，在大连市首开先河打造"传媒艺术特色高中"。学校已成为中国传媒大学、东北师范大学传媒艺术专业生源基地，为学生的全面发展尤其是未来的升学、择业开辟了新路。</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-white rounded-xl border border-slate-100">
+                                <i data-lucide="video" class="w-6 h-6 text-school-dark mb-2"></i>
+                                <h4 class="font-bold text-sm mb-1">影视制作</h4>
+                                <p class="text-xs text-slate-500">校园电视台专业课程</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl border border-slate-100">
+                                <i data-lucide="mic" class="w-6 h-6 text-school-dark mb-2"></i>
+                                <h4 class="font-bold text-sm mb-1">播音主持</h4>
+                                <p class="text-xs text-slate-500">语言表达与舞台训练</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl border border-slate-100">
+                                <i data-lucide="camera" class="w-6 h-6 text-school-dark mb-2"></i>
+                                <h4 class="font-bold text-sm mb-1">摄影摄像</h4>
+                                <p class="text-xs text-slate-500">视觉艺术与构图技巧</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl border border-slate-100">
+                                <i data-lucide="pen-tool" class="w-6 h-6 text-school-dark mb-2"></i>
+                                <h4 class="font-bold text-sm mb-1">编导创作</h4>
+                                <p class="text-xs text-slate-500">剧本写作与导演基础</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-teachers" class="tab-content hidden animate-fade-up">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-2xl p-6 text-center border border-slate-100 card-hover">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-school-dark/10 rounded-full flex items-center justify-center">
+                            <i data-lucide="user" class="w-10 h-10 text-school-dark"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-1">高级教师</h4>
+                        <p class="text-3xl font-bold text-school-dark mb-2">86<span class="text-base font-normal text-slate-500">人</span></p>
+                        <p class="text-xs text-slate-500">占专任教师总数55%</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center border border-slate-100 card-hover">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-school-gold/10 rounded-full flex items-center justify-center">
+                            <i data-lucide="star" class="w-10 h-10 text-school-gold"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-1">骨干教师</h4>
+                        <p class="text-3xl font-bold text-school-dark mb-2">29<span class="text-base font-normal text-slate-500">人</span></p>
+                        <p class="text-xs text-slate-500">市区学科带头人及骨干</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center border border-slate-100 card-hover">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-school-red/10 rounded-full flex items-center justify-center">
+                            <i data-lucide="graduation-cap" class="w-10 h-10 text-school-red"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-1">研究生学历</h4>
+                        <p class="text-3xl font-bold text-school-dark mb-2">24<span class="text-base font-normal text-slate-500">人</span></p>
+                        <p class="text-xs text-slate-500">持续优化师资结构</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center border border-slate-100 card-hover">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="award" class="w-10 h-10 text-emerald-600"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-1">获奖教师</h4>
+                        <p class="text-3xl font-bold text-school-dark mb-2">34<span class="text-base font-normal text-slate-500">人</span></p>
+                        <p class="text-xs text-slate-500">获国家、省级教学奖项</p>
+                    </div>
+                </div>
+                <div class="mt-8 bg-white rounded-2xl p-8 border border-slate-100">
+                    <h4 class="font-bold text-lg mb-4">师资建设成果</h4>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-school-dark mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-slate-800">市区学科带头人</p>
+                                <p class="text-slate-500">7人引领学科发展</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-school-dark mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-slate-800">市区优秀班主任</p>
+                                <p class="text-slate-500">21人深耕德育一线</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-school-dark mt-0.5 flex-shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-slate-800">市区兼职教研员</p>
+                                <p class="text-slate-500">4人参与区域教研</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-achievements" class="tab-content hidden animate-fade-up">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl p-8 border border-slate-100">
+                        <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                            <i data-lucide="trending-up" class="w-6 h-6 text-school-dark"></i>
+                            高考成绩
+                        </h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium text-slate-700">本科录取率</span>
+                                    <span class="text-sm font-bold text-school-dark">60%+</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-3">
+                                    <div class="bg-school-dark h-3 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium text-slate-700">一本录取率（计划内）</span>
+                                    <span class="text-sm font-bold text-school-gold">24%+</span>
+                                </div>
+                                <div class="w-full bg-slate-100 rounded-full h-3">
+                                    <div class="bg-school-gold h-3 rounded-full" style="width: 24%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-school-dark/5 rounded-xl">
+                            <p class="text-sm text-slate-700 leading-relaxed">连续多年本科录取率达到60%以上，一本录取率占计划内招生数的24%以上。学生高考平均分大大高出第一批本科录取分数线，每年均有多人考入清华大学、北京大学、复旦大学、浙江大学等著名高校。</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 border border-slate-100">
+                        <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                            <i data-lucide="medal" class="w-6 h-6 text-school-gold"></i>
+                            学校荣誉
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-3 bg-slate-50 rounded-lg text-center">
+                                <p class="text-xs font-bold text-slate-800">辽宁省特色普通高中</p>
+                                <p class="text-[10px] text-slate-500">2024年</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg text-center">
+                                <p class="text-xs font-bold text-slate-800">全国校园足球特色校</p>
+                                <p class="text-[10px] text-slate-500">教育部</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg text-center">
+                                <p class="text-xs font-bold text-slate-800">全国校园篮球特色校</p>
+                                <p class="text-[10px] text-slate-500">教育部</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg text-center">
+                                <p class="text-xs font-bold text-slate-800">大连市第一操</p>
+                                <p class="text-[10px] text-slate-500">市教育局</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg text-center">
+                                <p class="text-xs font-bold text-slate-800">教育信息化示范校</p>
+                                <p class="text-[10px] text-slate-500">大连市</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-lg text-center">
+                                <p class="text-xs font-bold text-slate-800">德育工作先进集体</p>
+                                <p class="text-[10px] text-slate-500">大连市</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-international" class="tab-content hidden animate-fade-up">
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 text-center">
+                    <div class="max-w-2xl mx-auto">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-school-dark/10 rounded-full flex items-center justify-center">
+                            <i data-lucide="globe" class="w-8 h-8 text-school-dark"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">国际交流合作</h3>
+                        <p class="text-slate-600 mb-8">大连五中积极开展国际交流与合作，与英国等多国友好学校建立合作关系，定期组织师生互访、文化交流活动，拓展学生国际视野，培养具有全球竞争力的人才。</p>
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            <div class="p-4 bg-slate-50 rounded-xl">
+                                <i data-lucide="plane" class="w-6 h-6 text-school-dark mx-auto mb-2"></i>
+                                <p class="font-bold text-sm">师生互访</p>
+                                <p class="text-xs text-slate-500">定期组织海外游学</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-xl">
+                                <i data-lucide="message-circle" class="w-6 h-6 text-school-dark mx-auto mb-2"></i>
+                                <p class="font-bold text-sm">线上交流</p>
+                                <p class="text-xs text-slate-500">远程课堂与文化分享</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-xl">
+                                <i data-lucide="handshake" class="w-6 h-6 text-school-dark mx-auto mb-2"></i>
+                                <p class="font-bold text-sm">合作签约</p>
+                                <p class="text-xs text-slate-500">建立长期友好关系</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 招生招聘 -->
+    <section id="admission" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-up">
+                    <span class="inline-block px-4 py-1 bg-school-red/10 text-school-red text-sm font-medium rounded-full mb-4">ADMISSION</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">招生与招聘</h2>
+
+                    <div class="space-y-6">
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 bg-school-dark rounded-lg flex items-center justify-center">
+                                    <i data-lucide="user-plus" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900">初中招生</h3>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-4">我校初中部现有22个教学班，面向西岗区学区范围招生。学校实施和雅德育，注重学生全面发展，开设丰富的社团活动和校本课程。</p>
+                            <a href="#" class="inline-flex items-center gap-2 text-school-dark font-medium text-sm hover:gap-3 transition-all" title="即将上线">
+                                查看招生简章 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 bg-school-gold rounded-lg flex items-center justify-center">
+                                    <i data-lucide="school" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900">高中招生</h3>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-4">高中部18个教学班，以传媒艺术特色为亮点，同时开设普通文化课程。2024年我校获评辽宁省特色普通高中，为学子提供更多元的升学路径。</p>
+                            <a href="#" class="inline-flex items-center gap-2 text-school-dark font-medium text-sm hover:gap-3 transition-all" title="即将上线">
+                                查看招生简章 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 bg-school-red rounded-lg flex items-center justify-center">
+                                    <i data-lucide="briefcase" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900">教师招聘</h3>
+                            </div>
+                            <p class="text-sm text-slate-600 mb-4">诚邀优秀教师加入五中大家庭。我们提供良好的工作环境、完善的培训体系和广阔的发展平台。</p>
+                            <a href="#" class="inline-flex items-center gap-2 text-school-dark font-medium text-sm hover:gap-3 transition-all" title="即将上线">
+                                查看招聘信息 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate-fade-up relative" style="transition-delay: 100ms">
+                    <div class="bg-gradient-to-br from-school-dark to-school-dark/90 rounded-3xl p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-6">2026年招生咨询</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="phone" class="w-6 h-6 text-school-gold"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white/70 text-sm">招生咨询电话</p>
+                                    <p class="font-bold text-lg">0411-84405182</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-school-gold"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white/70 text-sm">学校地址</p>
+                                    <p class="font-bold">大连市西岗区香工街7号</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="clock" class="w-6 h-6 text-school-gold"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white/70 text-sm">咨询时间</p>
+                                    <p class="font-bold">工作日 8:00-17:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-white/10">
+                            <p class="text-sm text-white/80 mb-4">扫码关注微信公众号，获取最新招生动态</p>
+                            <!-- 请替换为真实的微信公众号二维码图片 -->
+                            <div class="w-32 h-32 bg-white rounded-xl flex items-center justify-center">
+                                <div class="text-center text-slate-400">
+                                    <i data-lucide="qr-code" class="w-12 h-12 mx-auto mb-2"></i>
+                                    <p class="text-xs">微信公众号</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校历安排 -->
+    <section id="calendar" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-fade-up">
+                <span class="inline-block px-4 py-1 bg-school-dark/5 text-school-dark text-sm font-medium rounded-full mb-4">SCHOOL CALENDAR</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">校历安排</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">学期规划与假期安排，合理安排学习与生活</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 第一学期 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 animate-fade-up">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-school-dark/10 rounded-xl flex items-center justify-center">
+                            <i data-lucide="sun" class="w-6 h-6 text-school-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">第一学期</h3>
+                            <p class="text-sm text-slate-500">秋季学期 · 9月—次年1月</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">9月</p>
+                                <p class="text-lg font-bold text-school-dark">1日</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">秋季学期开学</p>
+                                <p class="text-xs text-slate-500 mt-1">全体学生报到注册，正式上课</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">10月</p>
+                                <p class="text-lg font-bold text-school-dark">1日</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">国庆节假期</p>
+                                <p class="text-xs text-slate-500 mt-1">放假安排按国家规定执行</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">11月</p>
+                                <p class="text-lg font-bold text-school-dark">中旬</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">期中考试</p>
+                                <p class="text-xs text-slate-500 mt-1">各年级阶段性学业检测</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">1月</p>
+                                <p class="text-lg font-bold text-school-dark">下旬</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">期末考试 · 寒假开始</p>
+                                <p class="text-xs text-slate-500 mt-1">学期结束，寒假约4周</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二学期 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-100 animate-fade-up" style="transition-delay: 100ms">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-school-gold/10 rounded-xl flex items-center justify-center">
+                            <i data-lucide="flower-2" class="w-6 h-6 text-school-gold"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">第二学期</h3>
+                            <p class="text-sm text-slate-500">春季学期 · 3月—7月</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">3月</p>
+                                <p class="text-lg font-bold text-school-dark">1日</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">春季学期开学</p>
+                                <p class="text-xs text-slate-500 mt-1">寒假结束，新学期开始</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">4月</p>
+                                <p class="text-lg font-bold text-school-dark">上旬</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">清明节假期</p>
+                                <p class="text-xs text-slate-500 mt-1">按国家规定放假</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">5月</p>
+                                <p class="text-lg font-bold text-school-dark">中旬</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">期中考试</p>
+                                <p class="text-xs text-slate-500 mt-1">各年级阶段性学业检测</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">6月</p>
+                                <p class="text-lg font-bold text-school-dark">7-9日</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">高考 · 中考</p>
+                                <p class="text-xs text-slate-500 mt-1">高三高考，初三中考</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                            <div class="flex-shrink-0 w-14 text-center">
+                                <p class="text-xs text-slate-500">7月</p>
+                                <p class="text-lg font-bold text-school-dark">中旬</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">期末考试 · 暑假开始</p>
+                                <p class="text-xs text-slate-500 mt-1">学期结束，暑假约6周</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 重要提示 -->
+            <div class="mt-8 bg-white rounded-2xl p-6 border border-slate-100 animate-fade-up">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 bg-school-red/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="alert-circle" class="w-5 h-5 text-school-red"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">温馨提示</h4>
+                        <p class="text-sm text-slate-600">以上校历为常规安排，具体日期以市教育局最终通知为准。节假日安排按国家及大连市相关规定执行。请关注学校官方通知获取最新校历信息。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校园风光 -->
+    <section id="campus" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-fade-up">
+                <span class="inline-block px-4 py-1 bg-school-dark/5 text-school-dark text-sm font-medium rounded-full mb-4">CAMPUS LIFE</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">校园风光</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">占地4万多平方米的现代化校园，400米标准跑道，优美的育人环境</p>
+            </div>
+
+            <div id="campus-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- 校园风光图片由上方 campusImages 数组自动渲染 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[9999] bg-black/95 hidden items-center justify-center">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 p-2 text-white/70 hover:text-white">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <button onclick="prevImage()" class="absolute left-4 p-2 text-white/70 hover:text-white">
+            <i data-lucide="chevron-left" class="w-8 h-8"></i>
+        </button>
+        <button onclick="nextImage()" class="absolute right-4 p-2 text-white/70 hover:text-white">
+            <i data-lucide="chevron-right" class="w-8 h-8"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-lg">
+        <p id="lightbox-caption" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-lg font-bold"></p>
+    </div>
+
+    <!-- 联系我们 / 页脚 -->
+    <section id="contact" class="bg-school-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <!-- 请替换为本地校徽图片路径，如 ./images/logo.jpg -->
+                        <div class="img-placeholder w-12 h-12 rounded-lg bg-white text-xs">[校徽]</div>
+                        <div>
+                            <h3 class="font-bold text-lg">大连市第五中学</h3>
+                            <p class="text-xs text-white/60">Dalian No.5 Middle School</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-white/70 leading-relaxed mb-6">始建于1957年，67年办学历史。以人为本，以德树人，以质立校，以特色求发展。</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-school-gold hover:text-school-dark transition-all" title="即将上线">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-school-gold hover:text-school-dark transition-all" title="即将上线">
+                            <i data-lucide="video" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-school-gold hover:text-school-dark transition-all" title="即将上线">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6">快速链接</h4>
+                    <ul class="space-y-3 text-sm text-white/70">
+                        <li><a href="#about" class="hover:text-school-gold transition-colors">学校概况</a></li>
+                        <li><a href="#news" class="hover:text-school-gold transition-colors">新闻中心</a></li>
+                        <li><a href="#education" class="hover:text-school-gold transition-colors">教育教学</a></li>
+                        <li><a href="#admission" class="hover:text-school-gold transition-colors">招生招聘</a></li>
+                        <li><a href="#campus" class="hover:text-school-gold transition-colors">校园风光</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6">部门电话</h4>
+                    <ul class="space-y-3 text-sm text-white/70">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-school-gold"></i>
+                            办公室：0411-84405182
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-school-gold"></i>
+                            教务处：0411-84446541
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-school-gold"></i>
+                            德育处：0411-84405182
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-school-gold"></i>
+                            总务处：0411-84405182
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-6">学校地址</h4>
+                    <div class="space-y-3 text-sm text-white/70">
+                        <p class="flex items-start gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
+                            辽宁省大连市西岗区香工街7号
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
+                            邮编：116021
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <i data-lucide="globe" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
+                            www.dl5z.cn
+                        </p>
+                    </div>
+                    <div class="mt-6 rounded-xl overflow-hidden h-40 bg-white/10">
+                        <iframe 
+                            src="https://map.baidu.com/search/%E5%A4%A7%E8%BF%9E%E5%B8%82%E7%AC%AC%E4%BA%94%E4%B8%AD%E5%AD%A6" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            title="学校地图">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
+                    <p>© 2026 大连市第五中学 版权所有 <!-- 国内上线时请填写：辽ICP备XXXXXXXX号 --></p>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-white transition-colors" title="即将上线">网站地图</a>
+                        <a href="#" class="hover:text-white transition-colors" title="即将上线">隐私政策</a>
+                        <a href="#" class="hover:text-white transition-colors" title="即将上线">技术支持</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 返回顶部 -->
+    <button id="back-to-top" onclick="scrollToTop()" class="fixed bottom-8 right-8 w-12 h-12 bg-school-dark text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-school-dark/90 hover:scale-110 z-40">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // 初始化 Lucide 图标
+        lucide.createIcons();
+
+        // ═══════════════════════════════════════════════════════════════
+        //  萌新维护指南：新闻与图片数据配置区
+        //  你只需要改下面的数组，完全不用碰 HTML 标签！
+        // ═══════════════════════════════════════════════════════════════
+
+        // 【通知公告】格式：
+        // { month: '06', day: '01', tag: 'NEW', title: '标题', desc: '摘要' }
+        // 不需要标签时，去掉 tag 字段即可
+        const noticeData = [
+            // 示例（有 NEW 标签）：
+            // { month: '06', day: '01', tag: 'NEW', title: '关于2026年暑假放假安排的通知', desc: '根据市教育局统一部署，结合我校实际情况，现将2026年暑假放假安排通知如下...' },
+            // 示例（无标签）：
+            // { month: '05', day: '28', title: '2026级高一新生报到须知', desc: '欢迎加入大连五中大家庭，请各位新生按照以下要求准时报到...' },
+        ];
+
+        // 【校园新闻】格式：
+        // { type: 'featured', date: '2026-05-20', tag: '校园活动', image: '图片地址', title: '标题', desc: '摘要' }
+        // { type: 'normal',  date: '2026-05-15', image: '图片地址', title: '标题' }
+        const newsData = [
+            // 示例（带大图）：
+            // { type: 'featured', date: '2026-05-20', tag: '校园活动', image: 'https://images.unsplash.com/photo-xxx?w=800&q=80', title: '我校举办第十八届校园科技文化节', desc: '本届科技文化节以"创新引领未来"为主题...' },
+            // 示例（普通列表）：
+            // { type: 'normal', date: '2026-05-15', image: 'https://images.unsplash.com/photo-xxx?w=400&q=80', title: '高三年级举行成人礼暨高考誓师大会' },
+        ];
+
+        // 【校园风光图片】格式：
+        // { src: '图片地址', caption: '图片说明' }
+        // 想加图就复制一行，想删图就删掉一行
+        const campusImages = [
+            { src: '', caption: '现代化教学楼' },
+            { src: '', caption: '综合实验楼' },
+            { src: '', caption: '400米标准操场' },
+            { src: '', caption: '图书馆（81000册藏书）' },
+            { src: '', caption: '智慧课堂' },
+            { src: '', caption: '体育活动' },
+            { src: '', caption: '社团活动（20个社团）' },
+            { src: '', caption: '艺术教室' },
+        ];
+        // ═══════════════════════════════════════════════════════════════
+        //  数据配置区结束 —— 下面不用改
+        // ═══════════════════════════════════════════════════════════════
+
+        // 渲染通知公告
+        function renderNotices() {
+            const container = document.getElementById('notice-list');
+            if (!container || !noticeData.length) return;
+            container.innerHTML = noticeData.map(item => `
+                <div class="group flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100">
+                    <div class="flex-shrink-0 w-14 h-14 ${item.tag ? 'bg-school-red' : 'bg-school-dark'} text-white rounded-lg flex flex-col items-center justify-center">
+                        <span class="text-xs font-bold">${item.month}月</span>
+                        <span class="text-lg font-bold leading-none">${item.day}</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 mb-1">
+                            ${item.tag ? `<span class="px-2 py-0.5 bg-school-red text-white text-[10px] rounded">${item.tag}</span>` : ''}
+                            <h4 class="font-bold text-slate-800 text-sm truncate group-hover:text-school-dark transition-colors">${item.title}</h4>
+                        </div>
+                        <p class="text-xs text-slate-500 line-clamp-2">${item.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        // 渲染校园新闻
+        function renderNews() {
+            const container = document.getElementById('news-list');
+            if (!container || !newsData.length) return;
+            container.innerHTML = newsData.map(item => {
+                if (item.type === 'featured') {
+                    const imgHtml = item.image 
+                        ? `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">`
+                        : `<div class="img-placeholder w-full h-full">[请替换]<br>${item.title}</div>`;
+                    return `
+                        <a href="#" class="group block rounded-2xl overflow-hidden border border-slate-100 hover:border-school-dark/20 transition-all card-hover" title="即将上线">
+                            <div class="relative h-48 overflow-hidden">
+                                ${imgHtml}
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-school-dark text-white text-xs rounded-full">${item.tag}</div>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                                    <i data-lucide="calendar" class="w-3 h-3"></i>
+                                    ${item.date}
+                                </div>
+                                <h4 class="font-bold text-slate-900 mb-2 group-hover:text-school-dark transition-colors">${item.title}</h4>
+                                <p class="text-sm text-slate-600 line-clamp-2">${item.desc}</p>
+                            </div>
+                        </a>
+                    `;
+                } else {
+                    const imgHtml = item.image
+                        ? `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">`
+                        : `<div class="img-placeholder w-full h-full text-xs">[请替换]</div>`;
+                    return `
+                        <a href="#" class="group flex gap-4 items-start" title="即将上线">
+                            <div class="w-24 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                ${imgHtml}
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 text-xs text-slate-500 mb-1">
+                                    <i data-lucide="calendar" class="w-3 h-3"></i>
+                                    ${item.date}
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-school-dark transition-colors line-clamp-2">${item.title}</h4>
+                            </div>
+                        </a>
+                    `;
+                }
+            }).join('');
+            lucide.createIcons();
+        }
+
+        // 渲染校园风光
+        function renderCampus() {
+            const container = document.getElementById('campus-grid');
+            if (!container) return;
+            container.innerHTML = campusImages.map((img, index) => {
+                if (!img.src) {
+                    return `<div class="group relative rounded-2xl overflow-hidden h-48 md:h-64 cursor-pointer animate-fade-up" style="transition-delay: ${(index % 4) * 50}ms">
+                        <div class="img-placeholder w-full h-full">[请替换]<br>${img.caption}</div>
+                    </div>`;
+                }
+                return `<div class="group relative rounded-2xl overflow-hidden h-48 md:h-64 cursor-pointer animate-fade-up" style="transition-delay: ${(index % 4) * 50}ms" onclick="openLightbox(${index})">
+                    <img src="${img.src}" alt="${img.caption}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <p class="text-white font-bold text-sm">${img.caption}</p>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        // 页面加载后执行渲染
+        renderNotices();
+        renderNews();
+        renderCampus();
+
+        // 加载动画
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // 初始化 Swiper
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // 数字计数动画
+                    if (entry.target.querySelector('.count-up')) {
+                        entry.target.querySelectorAll('.count-up').forEach(el => {
+                            const target = parseInt(el.getAttribute('data-target'));
+                            animateCount(el, target);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        function animateCount(el, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    el.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
+
+        // 导航栏滚动效果
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('back-to-top');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                header.classList.add('shadow-md');
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                header.classList.remove('shadow-md');
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // 返回顶部
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 搜索切换
+        function toggleSearch() {
+            const searchBar = document.getElementById('search-bar');
+            searchBar.classList.toggle('hidden');
+            if (!searchBar.classList.contains('hidden')) {
+                searchBar.querySelector('input').focus();
+            }
+        }
+
+        // 移动端菜单
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 主题切换（简单模拟）
+        function toggleTheme() {
+            const icon = document.getElementById('theme-icon');
+            if (icon.getAttribute('data-lucide') === 'sun') {
+                icon.setAttribute('data-lucide', 'moon');
+                document.body.classList.add('dark');
+            } else {
+                icon.setAttribute('data-lucide', 'sun');
+                document.body.classList.remove('dark');
+            }
+            lucide.createIcons();
+        }
+
+        // 标签切换
+        function switchTab(tabName) {
+            // 隐藏所有内容
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // 显示选中内容
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+
+            // 更新按钮样式
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-school-dark', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-100', 'border', 'border-slate-200');
+            });
+
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-100', 'border', 'border-slate-200');
+            activeBtn.classList.add('bg-school-dark', 'text-white');
+        }
+
+        // Lightbox（数据来自上方 campusImages 数组）
+        let currentImage = 0;
+
+        function openLightbox(index) {
+            currentImage = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.getElementById('lightbox').classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const img = campusImages[currentImage];
+            // 自动将缩略图尺寸替换为大图尺寸
+            const largeSrc = img.src.replace('w=600', 'w=1200');
+            document.getElementById('lightbox-img').src = largeSrc;
+            document.getElementById('lightbox-caption').textContent = img.caption;
+        }
+
+        function nextImage() {
+            currentImage = (currentImage + 1) % images.length;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            updateLightbox();
+        }
+
+        // 键盘支持
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // 点击背景关闭
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('lightbox')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
