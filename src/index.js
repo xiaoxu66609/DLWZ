@@ -39,15 +39,24 @@
         // { src: '图片地址', caption: '图片说明' }
         // 想加图就复制一行，想删图就删掉一行
         const campusImages = [
-            { src: '', caption: '现代化教学楼' },
-            { src: '', caption: '综合实验楼' },
-            { src: '', caption: '400米标准操场' },
-            { src: '', caption: '图书馆（81000册藏书）' },
-            { src: '', caption: '智慧课堂' },
-            { src: '', caption: '体育活动' },
-            { src: '', caption: '社团活动（20个社团）' },
-            { src: '', caption: '艺术教室' },
+            { src: './images/新教学楼外景.jpg', caption: '新教学楼外景' },
+            { src: './images/新教学楼内景.jpg', caption: '新教学楼内景' },
+            { src: './images/鸟瞰全景.jpg', caption: '校园鸟瞰全景' },
+            { src: './images/教室照片.jpg', caption: '和雅多功能教室' },
+            { src: './images/校园活动.JPG', caption: '阳光大课间' },
+            { src: './images/毕业典礼.jpg', caption: '桃李芬芳毕业季' },
+            { src: './images/新楼正门内景.jpg', caption: '新楼正门内景' },
+            { src: './images/宣传海报.jpg', caption: '校园宣传海报' },
+            { src: './images/体育馆报告厅外景.jpg', caption: '体育馆报告厅外景' },
+            { src: './images/足球文化.jpg', caption: '特色足球文化' },
+            { src: './images/传媒艺术.jpg', caption: '传媒艺术课程' },
+            { src: './images/2023,2024级学生.jpg', caption: '五中学子风采' },
         ];
+
+        if (typeof window !== 'undefined') {
+            window.campusImages = window.campusImages || campusImages;
+            window.campusimages = window.campusimages || window.campusImages;
+        }
         // ═══════════════════════════════════════════════════════════════
         //  数据配置区结束 —— 下面不用改
         // ═══════════════════════════════════════════════════════════════
@@ -134,35 +143,52 @@
             lucide.createIcons();
         }
 
-        // 渲染校园风光
-        // 渲染校园风光
-function renderCampus() {
-    const container = document.getElementById('campus-grid');
-    if (!container) return;
-    
-    // ─── 直接在这里硬编码补全你所有的 10 张照片 ───
-    const myPhotos = [
-        { src: './images/新教学楼外景.jpg', caption: '新教学楼外景' },
-        { src: './images/新教学楼内景.jpg', caption: '新教学楼内景' },
-        { src: './images/鸟瞰全景.jpg', caption: '校园鸟瞰全景' },
-        { src: './images/教室照片.jpg', caption: '和雅多功能教室' },
-        { src: './images/校园活动.JPG', caption: '阳光大课间' },
-        { src: './images/毕业典礼.jpg', caption: '桃李芬芳毕业季' },
-        { src: './images/新楼正门内景.jpg', caption: '新楼正门内景' },
-        { src: './images/宣传海报.jpg', caption: '校园宣传海报' },
-        { src: './images/体育馆报告厅外景.jpg', caption: '体育馆报告厅外景' },
-        { src: './images/足球文化.jpg', caption: '特色足球文化' }
-    ];
+        function uniqueImages(items) {
+            const seen = new Set();
+            return items.filter(item => {
+                if (!item || !item.src || seen.has(item.src)) return false;
+                seen.add(item.src);
+                return true;
+            });
+        }
 
-    container.innerHTML = myPhotos.map((img, index) => {
-        return `<div class="group relative rounded-2xl overflow-hidden h-48 md:h-64 cursor-pointer animate-fade-up" style="transition-delay: ${(index % 4) * 50}ms" onclick="openLightbox(${index})">
-            <img src="${img.src}" alt="${img.caption}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                <p class="text-white font-bold text-sm">${img.caption}</p>
-            </div>
-        </div>`;
-    }).join('');
-}
+        function getCampusImageData() {
+            return uniqueImages([
+                ...(typeof campusImages !== 'undefined' && Array.isArray(campusImages) ? campusImages : []),
+                ...(typeof campusimages !== 'undefined' && Array.isArray(campusimages) && campusimages !== campusImages ? campusimages : []),
+                ...(typeof window !== 'undefined' && Array.isArray(window.campusImages) && window.campusImages !== campusImages ? window.campusImages : []),
+                ...(typeof window !== 'undefined' && Array.isArray(window.campusimages) && window.campusimages !== campusImages && window.campusimages !== window.campusImages ? window.campusimages : []),
+            ]);
+        }
+
+        function getRandomItems(items, count) {
+            const shuffled = [...items];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled.slice(0, Math.min(count, shuffled.length));
+        }
+
+        let displayedCampusImages = [];
+
+        // 渲染校园风光
+        function renderCampus() {
+            const container = document.getElementById('campus-grid');
+            if (!container) return;
+
+            displayedCampusImages = getRandomItems(getCampusImageData(), 8);
+            if (!displayedCampusImages.length) return;
+
+            container.innerHTML = displayedCampusImages.map((img, index) => {
+                return `<div class="group relative rounded-2xl overflow-hidden h-48 md:h-64 cursor-pointer animate-fade-up" style="transition-delay: ${(index % 4) * 50}ms" onclick="openLightbox(${index})">
+                    <img src="${img.src}" alt="${img.caption}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <p class="text-white font-bold text-sm">${img.caption}</p>
+                    </div>
+                </div>`;
+            }).join('');
+        }
         // 页面加载后执行渲染
         renderNotices();
         renderNews();
@@ -332,7 +358,8 @@ function renderCampus() {
         }
 
         function updateLightbox() {
-            const img = campusImages[currentImage];
+            const img = displayedCampusImages[currentImage];
+            if (!img) return;
             // 自动将缩略图尺寸替换为大图尺寸
             const largeSrc = img.src.replace('w=600', 'w=1200');
             document.getElementById('lightbox-img').src = largeSrc;
@@ -340,12 +367,14 @@ function renderCampus() {
         }
 
         function nextImage() {
-            currentImage = (currentImage + 1) % images.length;
+            if (!displayedCampusImages.length) return;
+            currentImage = (currentImage + 1) % displayedCampusImages.length;
             updateLightbox();
         }
 
         function prevImage() {
-            currentImage = (currentImage - 1 + images.length) % images.length;
+            if (!displayedCampusImages.length) return;
+            currentImage = (currentImage - 1 + displayedCampusImages.length) % displayedCampusImages.length;
             updateLightbox();
         }
 
