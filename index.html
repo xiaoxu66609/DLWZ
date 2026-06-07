@@ -68,7 +68,7 @@
     <!-- 加载动画 -->
     <div id="loader" class="fixed inset-0 z-[9999] bg-school-dark flex items-center justify-center transition-opacity duration-500">
         <div class="text-center">
-            <div class="img-placeholder w-20 h-20 mx-auto mb-4 animate-float rounded-lg text-xs">[校徽]</div> <!-- 请替换为本地校徽图片 -->
+            <img src="./images/五中logo.jpg" alt="大连五中校徽" class="w-20 h-20 mx-auto mb-4 animate-float object-cover rounded-lg">
             <div class="w-48 h-1 bg-white/20 rounded-full overflow-hidden">
                 <div class="h-full bg-school-gold rounded-full animate-pulse" style="width: 60%"></div>
             </div>
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <!-- 顶部通知栏 -->
+  <!-- 顶部通知栏 -->
     <div class="bg-school-red text-white text-xs py-2 px-4 text-center relative overflow-hidden">
         <div class="flex items-center justify-center gap-4 flex-wrap">
             <span class="flex items-center gap-1">
@@ -96,14 +96,13 @@
                 <a href="#" class="flex items-center gap-3 group" title="即将上线">
                     <div class="relative overflow-hidden rounded-lg">
                         <!-- 请替换为本地校徽图片路径，如 ./images/logo.jpg -->
-                        <div class="img-placeholder w-10 h-10 lg:w-12 lg:h-12 rounded-lg text-xs">[校徽]</div>
+                        <img src="./images/五中logo.jpg" alt="大连五中校徽" class="w-10 h-10 lg:w-12 lg:h-12 object-cover rounded-lg">
                     </div>
                     <div class="hidden sm:block">
                         <h1 class="text-lg lg:text-xl font-bold text-school-dark leading-tight">大连市第五中学</h1>
                         <p class="text-[10px] lg:text-xs text-slate-500 tracking-wider">DALIAN NO.5 MIDDLE SCHOOL</p>
                     </div>
                 </a>
-
                 <!-- 桌面导航 -->
                 <nav class="hidden lg:flex items-center gap-8">
                     <a href="#about" class="nav-link text-sm font-medium text-slate-700 hover:text-school-dark transition-colors">学校概况</a>
@@ -165,7 +164,7 @@
         </div>
     </header>
 
-    <!-- 英雄区轮播 -->
+  <!-- 英雄区轮播 -->
     <section class="relative h-[600px] lg:h-[700px] overflow-hidden">
         <div class="swiper hero-swiper h-full">
             <div class="swiper-wrapper">
@@ -174,6 +173,7 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-school-dark/90 to-school-dark/70"></div>
                     <!-- 请替换为校园实景照片 -->
                     <div class="absolute inset-0 bg-slate-700/50 mix-blend-overlay"></div>
+                    <img src="./images/鸟瞰全景.jpg" alt="大连五中鸟瞰全景" class="absolute inset-0 w-full h-full object-cover -z-10">
                     <div class="relative h-full flex items-center justify-center text-center px-4">
                         <div class="max-w-4xl animate-fade-up">
                             <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6 border border-white/20">
@@ -206,6 +206,7 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/90 to-school-dark/80"></div>
                     <!-- 请替换为校园活动照片 -->
                     <div class="absolute inset-0 bg-slate-700/50 mix-blend-overlay"></div>
+                    <img src="./images/校园活动.JPG" alt="大连五中校园活动" class="absolute inset-0 w-full h-full object-cover -z-10">
                     <div class="relative h-full flex items-center justify-center text-center px-4">
                         <div class="max-w-4xl">
                             <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6 border border-white/20">
@@ -232,6 +233,7 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-amber-900/80 to-school-dark/90"></div>
                     <!-- 请替换为毕业典礼或课堂照片 -->
                     <div class="absolute inset-0 bg-slate-700/50 mix-blend-overlay"></div>
+                    <img src="./images/毕业典礼.jpg" alt="大连五中毕业典礼" class="absolute inset-0 w-full h-full object-cover -z-10">
                     <div class="relative h-full flex items-center justify-center text-center px-4">
                         <div class="max-w-4xl">
                             <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm mb-6 border border-white/20">
@@ -436,18 +438,16 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-4 mt-8">
                             <div class="rounded-2xl overflow-hidden h-48 shadow-lg">
-                                <div class="img-placeholder w-full h-full">[请替换]<br>教学楼照片</div>
+                                <img src="./images/新教学楼外景.jpg" alt="新教学楼外景" class="w-full h-full object-cover">
                             </div>
                             <div class="rounded-2xl overflow-hidden h-32 shadow-lg">
-                                <div class="img-placeholder w-full h-full">[请替换]<br>实验室照片</div>
-                            </div>
+                                <img src="./images/新教学楼内景.jpg" alt="新教学楼内景" class="w-full h-full object-cover">                            </div>
                         </div>
                         <div class="space-y-4">
                             <div class="rounded-2xl overflow-hidden h-32 shadow-lg">
-                                <div class="img-placeholder w-full h-full">[请替换]<br>操场照片</div>
-                            </div>
+                                <img src="./images/鸟瞰全景.jpg" alt="学校操场鸟瞰全景" class="w-full h-full object-cover">                            </div>
                             <div class="rounded-2xl overflow-hidden h-48 shadow-lg">
-                                <div class="img-placeholder w-full h-full">[请替换]<br>课堂照片</div>
+                                <img src="./images/教室照片.jpg" alt="学生课堂照片" class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
@@ -506,7 +506,7 @@
             <div class="mt-16 bg-slate-50 rounded-3xl p-8 md:p-12 text-center animate-fade-up">
                 <div class="max-w-3xl mx-auto">
                     <!-- 请替换为本地校徽图片路径，如 ./images/logo.jpg -->
-                    <div class="img-placeholder w-16 h-16 mx-auto mb-6 rounded-lg">[校徽]</div>
+                    <img src="./images/五中logo.jpg" alt="大连五中校徽" class="w-16 h-16 mx-auto mb-6 object-cover rounded-lg">
                     <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">校训</h3>
                     <p class="text-4xl md:text-5xl font-bold text-school-dark mb-6 tracking-widest">自尊 自强 求实 开创</p>
                     <div class="grid sm:grid-cols-3 gap-4 text-sm text-slate-600">
@@ -549,7 +549,7 @@
             <div id="content-courses" class="tab-content animate-fade-up">
                 <div class="grid lg:grid-cols-2 gap-8 items-center">
                     <div class="rounded-2xl overflow-hidden h-80 lg:h-96">
-                        <div class="img-placeholder w-full h-full">[请替换]<br>传媒艺术课程照片</div>
+                        <img src="./images/传媒艺术.jpg" alt="传媒艺术专业课程展示" class="w-full h-full object-cover">
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold text-slate-900 mb-4">传媒艺术特色高中</h3>
@@ -1021,7 +1021,7 @@
                 <div class="lg:col-span-1">
                     <div class="flex items-center gap-3 mb-6">
                         <!-- 请替换为本地校徽图片路径，如 ./images/logo.jpg -->
-                        <div class="img-placeholder w-12 h-12 rounded-lg bg-white text-xs">[校徽]</div>
+                        <img src="./images/五中logo.jpg" alt="大连五中校徽" class="w-12 h-12 rounded-lg object-cover bg-white">
                         <div>
                             <h3 class="font-bold text-lg">大连市第五中学</h3>
                             <p class="text-xs text-white/60">Dalian No.5 Middle School</p>
@@ -1087,7 +1087,7 @@
                         </p>
                         <p class="flex items-start gap-2">
                             <i data-lucide="globe" class="w-4 h-4 text-school-gold mt-0.5 flex-shrink-0"></i>
-                            dl5z.cn
+                            www.dl5zx.cn
                         </p>
                     </div>
                     <div class="mt-6 rounded-xl overflow-hidden h-40 bg-white/10">
@@ -1244,24 +1244,34 @@
         }
 
         // 渲染校园风光
-        function renderCampus() {
-            const container = document.getElementById('campus-grid');
-            if (!container) return;
-            container.innerHTML = campusImages.map((img, index) => {
-                if (!img.src) {
-                    return `<div class="group relative rounded-2xl overflow-hidden h-48 md:h-64 cursor-pointer animate-fade-up" style="transition-delay: ${(index % 4) * 50}ms">
-                        <div class="img-placeholder w-full h-full">[请替换]<br>${img.caption}</div>
-                    </div>`;
-                }
-                return `<div class="group relative rounded-2xl overflow-hidden h-48 md:h-64 cursor-pointer animate-fade-up" style="transition-delay: ${(index % 4) * 50}ms" onclick="openLightbox(${index})">
-                    <img src="${img.src}" alt="${img.caption}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                        <p class="text-white font-bold text-sm">${img.caption}</p>
-                    </div>
-                </div>`;
-            }).join('');
-        }
+        // 渲染校园风光
+function renderCampus() {
+    const container = document.getElementById('campus-grid');
+    if (!container) return;
+    
+    // ─── 直接在这里硬编码补全你所有的 10 张照片 ───
+    const myPhotos = [
+        { src: './images/新教学楼外景.jpg', caption: '新教学楼外景' },
+        { src: './images/新教学楼内景.jpg', caption: '新教学楼内景' },
+        { src: './images/鸟瞰全景.jpg', caption: '校园鸟瞰全景' },
+        { src: './images/教室照片.jpg', caption: '和雅多功能教室' },
+        { src: './images/校园活动.JPG', caption: '阳光大课间' },
+        { src: './images/毕业典礼.jpg', caption: '桃李芬芳毕业季' },
+        { src: './images/新楼正门内景.jpg', caption: '新楼正门内景' },
+        { src: './images/宣传海报.jpg', caption: '校园宣传海报' },
+        { src: './images/体育馆报告厅外景.jpg', caption: '体育馆报告厅外景' },
+        { src: './images/足球文化.jpg', caption: '特色足球文化' }
+    ];
 
+    container.innerHTML = myPhotos.map((img, index) => {
+        return `<div class="group relative rounded-2xl overflow-hidden h-48 md:h-64 cursor-pointer animate-fade-up" style="transition-delay: ${(index % 4) * 50}ms" onclick="openLightbox(${index})">
+            <img src="${img.src}" alt="${img.caption}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <p class="text-white font-bold text-sm">${img.caption}</p>
+            </div>
+        </div>`;
+    }).join('');
+}
         // 页面加载后执行渲染
         renderNotices();
         renderNews();
