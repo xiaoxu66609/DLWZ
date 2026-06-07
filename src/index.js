@@ -10,11 +10,15 @@
         // { month: '06', day: '01', tag: 'NEW', title: '标题', desc: '摘要' }
         // 不需要标签时，去掉 tag 字段即可
         const noticeData = [
-            // 示例（有 NEW 标签）：
-            // { month: '06', day: '01', tag: 'NEW', title: '关于2026年暑假放假安排的通知', desc: '根据市教育局统一部署，结合我校实际情况，现将2026年暑假放假安排通知如下...' },
-            // 示例（无标签）：
-            // { month: '05', day: '28', title: '2026级高一新生报到须知', desc: '欢迎加入大连五中大家庭，请各位新生按照以下要求准时报到...' },
+            { month: '06', day: '07', tag: 'NEW', title: '2026年初中招生简章已上线', desc: '初中招生简章页面已开放，可查看招生范围、报名流程、咨询方式等信息。' },
+            { month: '06', day: '07', title: '请关注学校官方通知获取最新校历信息', desc: '校历安排以市教育局最终通知为准，节假日安排按国家及大连市相关规定执行。' },
+            { month: '06', day: '07', title: '2025年校园升级改造焕新工程全面启动', desc: '学校持续完善校园环境与教学空间，推进现代化校园建设。' },
         ];
+
+        if (typeof window !== 'undefined') {
+            window.noticeData = window.noticeData || noticeData;
+            window.noticedata = window.noticedata || window.noticeData;
+        }
 
         // 【校园新闻】格式：
         // { type: 'featured', date: '2026-05-20', tag: '校园活动', image: '图片地址', title: '标题', desc: '摘要' }
@@ -51,8 +55,14 @@
         // 渲染通知公告
         function renderNotices() {
             const container = document.getElementById('notice-list');
-            if (!container || !noticeData.length) return;
-            container.innerHTML = noticeData.map(item => `
+            const data = [
+                ...(typeof noticeData !== 'undefined' && Array.isArray(noticeData) ? noticeData : []),
+                ...(typeof noticedata !== 'undefined' && Array.isArray(noticedata) && noticedata !== noticeData ? noticedata : []),
+                ...(typeof window !== 'undefined' && Array.isArray(window.noticeData) && window.noticeData !== noticeData ? window.noticeData : []),
+                ...(typeof window !== 'undefined' && Array.isArray(window.noticedata) && window.noticedata !== noticeData && window.noticedata !== window.noticeData ? window.noticedata : []),
+            ].filter(Boolean);
+            if (!container || !data.length) return;
+            container.innerHTML = data.map(item => `
                 <div class="group flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100">
                     <div class="flex-shrink-0 w-14 h-14 ${item.tag ? 'bg-school-red' : 'bg-school-dark'} text-white rounded-lg flex flex-col items-center justify-center">
                         <span class="text-xs font-bold">${item.month}月</span>
