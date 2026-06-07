@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @source "../index.html";
+@source "../junior-admission.html";
 
 @theme {
   --color-primary-50: #eff6ff;
