@@ -20,11 +20,16 @@
         // { type: 'featured', date: '2026-05-20', tag: '校园活动', image: '图片地址', title: '标题', desc: '摘要' }
         // { type: 'normal',  date: '2026-05-15', image: '图片地址', title: '标题' }
         const newsData = [
-            // 示例（带大图）：
-            // { type: 'featured', date: '2026-05-20', tag: '校园活动', image: 'https://images.unsplash.com/photo-xxx?w=800&q=80', title: '我校举办第十八届校园科技文化节', desc: '本届科技文化节以"创新引领未来"为主题...' },
-            // 示例（普通列表）：
-            // { type: 'normal', date: '2026-05-15', image: 'https://images.unsplash.com/photo-xxx?w=400&q=80', title: '高三年级举行成人礼暨高考誓师大会' },
+            { type: 'featured', date: '2025', tag: '校园建设', image: './images/新教学楼外景.jpg', title: '2025年校园升级改造焕新工程全面启动', desc: '学校持续完善校园环境与教学空间，推进现代化校园建设，为师生提供更优质的学习与成长环境。' },
+            { type: 'normal', date: '2024-10', image: './images/宣传海报.jpg', title: '我校获评辽宁省特色普通高中' },
+            { type: 'normal', date: '2024', image: './images/校园活动.JPG', title: '和雅教育特色课程与校园活动持续开展' },
+            { type: 'normal', date: '2024', image: './images/毕业典礼.jpg', title: '桃李芬芳毕业季，五中学子奔赴新征程' },
         ];
+
+        if (typeof window !== 'undefined') {
+            window.newsData = window.newsData || newsData;
+            window.newsdata = window.newsdata || window.newsData;
+        }
 
         // 【校园风光图片】格式：
         // { src: '图片地址', caption: '图片说明' }
@@ -68,8 +73,14 @@
         // 渲染校园新闻
         function renderNews() {
             const container = document.getElementById('news-list');
-            if (!container || !newsData.length) return;
-            container.innerHTML = newsData.map(item => {
+            const data = [
+                ...(typeof newsData !== 'undefined' && Array.isArray(newsData) ? newsData : []),
+                ...(typeof newsdata !== 'undefined' && Array.isArray(newsdata) && newsdata !== newsData ? newsdata : []),
+                ...(typeof window !== 'undefined' && Array.isArray(window.newsData) && window.newsData !== newsData ? window.newsData : []),
+                ...(typeof window !== 'undefined' && Array.isArray(window.newsdata) && window.newsdata !== newsData && window.newsdata !== window.newsData ? window.newsdata : []),
+            ].filter(Boolean);
+            if (!container || !data.length) return;
+            container.innerHTML = data.map(item => {
                 if (item.type === 'featured') {
                     const imgHtml = item.image 
                         ? `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">`
