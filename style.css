@@ -89,3 +89,19 @@
         scrollbar-width: none;
     }
 }
+/* 强行提亮并显示电脑端的轮播小圆点 */
+.hero-swiper .swiper-pagination-bullets, 
+.hero-swiper .swiper-pagination-bullet {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 0.5 !important;
+    z-index: 50 !important;
+}
+
+/* 让当前选中的小圆点变成显眼的学校金色，并拉长变高级 */
+.hero-swiper .swiper-pagination-bullet-active {
+    background-color: #e2b857 !important; /* 金色 */
+    opacity: 1 !important;
+    width: 20px !important; 
+    border-radius: 4px !important;
+}
