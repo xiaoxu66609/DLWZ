@@ -1,3 +1,6 @@
+D5-JADC3-HS系统发布页(Dalian 5 th school-Joint All-Domain Command, Control and Campus system for High School)
+ 
+ 大连市第五中学高中联合全域指挥、控制与校园系统
 # 大连市第五中学官网 - 项目架构与数据维护规范
 
 # System Architecture & Data Maintenance Specifications
