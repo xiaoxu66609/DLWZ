@@ -57,6 +57,103 @@
             window.campusImages = window.campusImages || campusImages;
             window.campusimages = window.campusimages || window.campusImages;
         }
+
+        let managedContent = null;
+        let animationObserver = null;
+
+        function escapeHtml(value) {
+            return String(value ?? '').replace(/[&<>"']/g, char => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;',
+            })[char]);
+        }
+
+        function escapeAttr(value) {
+            return escapeHtml(value).replace(/`/g, '&#96;');
+        }
+
+        function getConfiguredList(primary, secondary, windowPrimary, windowSecondary) {
+            return [
+                ...(Array.isArray(primary) ? primary : []),
+                ...(Array.isArray(secondary) && secondary !== primary ? secondary : []),
+                ...(typeof window !== 'undefined' && Array.isArray(window[windowPrimary]) && window[windowPrimary] !== primary ? window[windowPrimary] : []),
+                ...(typeof window !== 'undefined' && Array.isArray(window[windowSecondary]) && window[windowSecondary] !== primary && window[windowSecondary] !== window[windowPrimary] ? window[windowSecondary] : []),
+            ].filter(Boolean);
+        }
+
+        function getNoticeData() {
+            if (managedContent && Array.isArray(managedContent.notices)) {
+                return managedContent.notices;
+            }
+            return getConfiguredList(
+                typeof noticeData !== 'undefined' ? noticeData : [],
+                typeof noticedata !== 'undefined' ? noticedata : [],
+                'noticeData',
+                'noticedata'
+            );
+        }
+
+        function getNewsData() {
+            if (managedContent && Array.isArray(managedContent.news)) {
+                return managedContent.news;
+            }
+            return getConfiguredList(
+                typeof newsData !== 'undefined' ? newsData : [],
+                typeof newsdata !== 'undefined' ? newsdata : [],
+                'newsData',
+                'newsdata'
+            );
+        }
+
+        function getCampusSourceData() {
+            if (managedContent && Array.isArray(managedContent.campusImages)) {
+                return managedContent.campusImages;
+            }
+            return getConfiguredList(
+                typeof campusImages !== 'undefined' ? campusImages : [],
+                typeof campusimages !== 'undefined' ? campusimages : [],
+                'campusImages',
+                'campusimages'
+            );
+        }
+
+        async function loadManagedContent() {
+            if (typeof fetch !== 'function') return;
+            const response = await fetch('/api/content', { cache: 'no-store' });
+            if (!response.ok) throw new Error('content api unavailable');
+            const content = await response.json();
+            managedContent = {
+                notices: Array.isArray(content.notices) ? content.notices : [],
+                news: Array.isArray(content.news) ? content.news : [],
+                campusImages: Array.isArray(content.campusImages) ? content.campusImages : [],
+            };
+        }
+
+        async function initManagedContent() {
+            try {
+                await loadManagedContent();
+            } catch (error) {
+                managedContent = null;
+            }
+
+            renderNotices();
+            renderNews();
+            renderCampus();
+        }
+
+        function observeAnimatedElements(root) {
+            const scope = root || document;
+            scope.querySelectorAll('.animate-fade-up').forEach(el => {
+                if (animationObserver) {
+                    animationObserver.observe(el);
+                } else {
+                    el.classList.add('visible');
+                }
+            });
+        }
         // ═══════════════════════════════════════════════════════════════
         //  数据配置区结束 —— 下面不用改
         // ═══════════════════════════════════════════════════════════════
@@ -64,25 +161,20 @@
         // 渲染通知公告
         function renderNotices() {
             const container = document.getElementById('notice-list');
-            const data = [
-                ...(typeof noticeData !== 'undefined' && Array.isArray(noticeData) ? noticeData : []),
-                ...(typeof noticedata !== 'undefined' && Array.isArray(noticedata) && noticedata !== noticeData ? noticedata : []),
-                ...(typeof window !== 'undefined' && Array.isArray(window.noticeData) && window.noticeData !== noticeData ? window.noticeData : []),
-                ...(typeof window !== 'undefined' && Array.isArray(window.noticedata) && window.noticedata !== noticeData && window.noticedata !== window.noticeData ? window.noticedata : []),
-            ].filter(Boolean);
+            const data = getNoticeData();
             if (!container || !data.length) return;
             container.innerHTML = data.map(item => `
                 <div class="group flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer border border-transparent hover:border-slate-100">
                     <div class="flex-shrink-0 w-14 h-14 ${item.tag ? 'bg-school-red' : 'bg-school-dark'} text-white rounded-lg flex flex-col items-center justify-center">
-                        <span class="text-xs font-bold">${item.month}月</span>
-                        <span class="text-lg font-bold leading-none">${item.day}</span>
+                        <span class="text-xs font-bold">${escapeHtml(item.month)}月</span>
+                        <span class="text-lg font-bold leading-none">${escapeHtml(item.day)}</span>
                     </div>
                     <div class="flex-1 min-w-0">
                         <div class="flex items-center gap-2 mb-1">
-                            ${item.tag ? `<span class="px-2 py-0.5 bg-school-red text-white text-[10px] rounded">${item.tag}</span>` : ''}
-                            <h4 class="font-bold text-slate-800 text-sm truncate group-hover:text-school-dark transition-colors">${item.title}</h4>
+                            ${item.tag ? `<span class="px-2 py-0.5 bg-school-red text-white text-[10px] rounded">${escapeHtml(item.tag)}</span>` : ''}
+                            <h4 class="font-bold text-slate-800 text-sm truncate group-hover:text-school-dark transition-colors">${escapeHtml(item.title)}</h4>
                         </div>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.desc}</p>
+                        <p class="text-xs text-slate-500 line-clamp-2">${escapeHtml(item.desc)}</p>
                     </div>
                 </div>
             `).join('');
@@ -92,37 +184,32 @@
         // 渲染校园新闻
         function renderNews() {
             const container = document.getElementById('news-list');
-            const data = [
-                ...(typeof newsData !== 'undefined' && Array.isArray(newsData) ? newsData : []),
-                ...(typeof newsdata !== 'undefined' && Array.isArray(newsdata) && newsdata !== newsData ? newsdata : []),
-                ...(typeof window !== 'undefined' && Array.isArray(window.newsData) && window.newsData !== newsData ? window.newsData : []),
-                ...(typeof window !== 'undefined' && Array.isArray(window.newsdata) && window.newsdata !== newsData && window.newsdata !== window.newsData ? window.newsdata : []),
-            ].filter(Boolean);
+            const data = getNewsData();
             if (!container || !data.length) return;
             container.innerHTML = data.map(item => {
                 if (item.type === 'featured') {
                     const imgHtml = item.image 
-                        ? `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">`
-                        : `<div class="img-placeholder w-full h-full">[请替换]<br>${item.title}</div>`;
+                        ? `<img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.title)}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">`
+                        : `<div class="img-placeholder w-full h-full">[请替换]<br>${escapeHtml(item.title)}</div>`;
                     return `
                         <a href="#" class="group block rounded-2xl overflow-hidden border border-slate-100 hover:border-school-dark/20 transition-all card-hover" title="即将上线">
                             <div class="relative h-48 overflow-hidden">
                                 ${imgHtml}
-                                <div class="absolute top-4 left-4 px-3 py-1 bg-school-dark text-white text-xs rounded-full">${item.tag}</div>
+                                <div class="absolute top-4 left-4 px-3 py-1 bg-school-dark text-white text-xs rounded-full">${escapeHtml(item.tag || '校园新闻')}</div>
                             </div>
                             <div class="p-5">
                                 <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
                                     <i data-lucide="calendar" class="w-3 h-3"></i>
-                                    ${item.date}
+                                    ${escapeHtml(item.date)}
                                 </div>
-                                <h4 class="font-bold text-slate-900 mb-2 group-hover:text-school-dark transition-colors">${item.title}</h4>
-                                <p class="text-sm text-slate-600 line-clamp-2">${item.desc}</p>
+                                <h4 class="font-bold text-slate-900 mb-2 group-hover:text-school-dark transition-colors">${escapeHtml(item.title)}</h4>
+                                <p class="text-sm text-slate-600 line-clamp-2">${escapeHtml(item.desc)}</p>
                             </div>
                         </a>
                     `;
                 } else {
                     const imgHtml = item.image
-                        ? `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">`
+                        ? `<img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.title)}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">`
                         : `<div class="img-placeholder w-full h-full text-xs">[请替换]</div>`;
                     return `
                         <a href="#" class="group flex gap-4 items-start" title="即将上线">
@@ -132,9 +219,9 @@
                             <div>
                                 <div class="flex items-center gap-2 text-xs text-slate-500 mb-1">
                                     <i data-lucide="calendar" class="w-3 h-3"></i>
-                                    ${item.date}
+                                    ${escapeHtml(item.date)}
                                 </div>
-                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-school-dark transition-colors line-clamp-2">${item.title}</h4>
+                                <h4 class="font-bold text-slate-800 text-sm group-hover:text-school-dark transition-colors line-clamp-2">${escapeHtml(item.title)}</h4>
                             </div>
                         </a>
                     `;
@@ -153,12 +240,7 @@
         }
 
         function getCampusImageData() {
-            return uniqueImages([
-                ...(typeof campusImages !== 'undefined' && Array.isArray(campusImages) ? campusImages : []),
-                ...(typeof campusimages !== 'undefined' && Array.isArray(campusimages) && campusimages !== campusImages ? campusimages : []),
-                ...(typeof window !== 'undefined' && Array.isArray(window.campusImages) && window.campusImages !== campusImages ? window.campusImages : []),
-                ...(typeof window !== 'undefined' && Array.isArray(window.campusimages) && window.campusimages !== campusImages && window.campusimages !== window.campusImages ? window.campusimages : []),
-            ]);
+            return uniqueImages(getCampusSourceData());
         }
 
         function getRandomItems(items, count) {
@@ -182,17 +264,16 @@
 
             container.innerHTML = displayedCampusImages.map((img, index) => {
                 return `<div class="group relative rounded-2xl overflow-hidden h-48 md:h-64 cursor-pointer animate-fade-up" style="transition-delay: ${(index % 4) * 50}ms" onclick="openLightbox(${index})">
-                    <img src="${img.src}" alt="${img.caption}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="${escapeAttr(img.src)}" alt="${escapeAttr(img.caption)}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                        <p class="text-white font-bold text-sm">${img.caption}</p>
+                        <p class="text-white font-bold text-sm">${escapeHtml(img.caption)}</p>
                     </div>
                 </div>`;
             }).join('');
+            observeAnimatedElements(container);
         }
         // 页面加载后执行渲染
-        renderNotices();
-        renderNews();
-        renderCampus();
+        initManagedContent();
 
         // 加载动画
         window.addEventListener('load', () => {
@@ -232,7 +313,7 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        animationObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -248,9 +329,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.animate-fade-up').forEach(el => {
-            observer.observe(el);
-        });
+        observeAnimatedElements(document);
 
         function animateCount(el, target) {
             let current = 0;

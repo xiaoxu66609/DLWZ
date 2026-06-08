@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大连五中网站管理</title>
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="login-view" class="login-panel" hidden>
+      <div>
+        <p class="eyebrow">DLWZ Admin</p>
+        <h1>网站内容管理</h1>
+        <p class="muted">登录后可维护首页公告、校园新闻和校园风光。</p>
+      </div>
+      <form id="login-form" class="stack">
+        <label>
+          <span>管理员账号</span>
+          <input name="username" autocomplete="username" required>
+        </label>
+        <label>
+          <span>管理员密码</span>
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit" class="primary">登录</button>
+        <p id="login-message" class="message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="admin-view" hidden>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">DLWZ Admin</p>
+          <h1>网站内容管理</h1>
+        </div>
+        <div class="account">
+          <span id="account-name"></span>
+          <button id="logout-button" type="button" class="ghost">退出</button>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="内容类型">
+        <button type="button" data-tab="notices" class="tab active">通知公告</button>
+        <button type="button" data-tab="news" class="tab">校园新闻</button>
+        <button type="button" data-tab="campus-images" class="tab">校园风光</button>
+      </nav>
+
+      <div class="workspace">
+        <section class="editor-panel">
+          <div class="panel-head">
+            <h2 id="form-title">新增通知公告</h2>
+            <button id="reset-form" type="button" class="ghost">新建</button>
+          </div>
+          <form id="content-form" class="form-grid"></form>
+          <p id="form-message" class="message" aria-live="polite"></p>
+        </section>
+
+        <section class="list-panel">
+          <div class="panel-head">
+            <h2 id="list-title">通知公告列表</h2>
+            <button id="refresh-button" type="button" class="ghost">刷新</button>
+          </div>
+          <div id="content-list" class="content-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="./admin.js"></script>
+</body>
+</html>

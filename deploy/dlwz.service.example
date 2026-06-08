@@ -1,0 +1,20 @@
+[Unit]
+Description=DLWZ Website Node Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/www/wwwroot/dlwz
+ExecStart=/root/.nvm/versions/node/v25.8.2/bin/node server.js
+Restart=always
+RestartSec=5
+Environment=HOST=127.0.0.1
+Environment=PORT=3000
+Environment=NODE_ENV=production
+Environment=PUBLIC_HTTPS=1
+Environment=SESSION_SECRET=replace-with-a-long-random-secret
+Environment=ADMIN_USER=replace-admin-user
+Environment=ADMIN_PASSWORD=replace-initial-admin-password
+
+[Install]
+WantedBy=multi-user.target

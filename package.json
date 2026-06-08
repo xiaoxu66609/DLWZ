@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check src/index.js && node --check admin/admin.js",
     "build:css": "tailwindcss -i ./src/input.css -o ./src/output.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
